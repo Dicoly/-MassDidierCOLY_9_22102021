@@ -1,0 +1,43 @@
+.sideBarContent {
+    background-color: black;
+    width: 117px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sideBarNav {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideBarNavLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.sideBarNavLinkImg {
+    width: 32px;
+    height: 36px;
+}
+
+.sideBarText {
+    color: white;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(-180deg);
+    margin: 15px 0;
+}
