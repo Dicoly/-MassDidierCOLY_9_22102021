@@ -1,0 +1,21 @@
+.welCome {
+    position: absolute;
+    left: 117px;
+    padding: 2rem 3rem;
+    margin-right: 117px;
+    top: 50px
+}
+
+.welcomeTitle {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.welcomeName {
+    color: red;
+}
+
+.welcomeMessage {
+    font-size: 18px;
+    margin: 0;
+}
