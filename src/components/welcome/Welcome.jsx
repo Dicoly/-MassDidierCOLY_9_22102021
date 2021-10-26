@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Welcome.css'
 
 
@@ -22,5 +23,9 @@ function Welcome(props) {
         </section>
     );
 }
+
+Welcome.propTypes = {
+    user: PropTypes.object.isRequired
+};
 
 export default Welcome;

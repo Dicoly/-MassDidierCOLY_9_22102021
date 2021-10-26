@@ -1,6 +1,8 @@
 .dashboardContent {
-    width: 100%;
     padding: 0 50px;
+    position: absolute;
+    left: 117px;
+    top: 50px;
 }
 
 .loading {

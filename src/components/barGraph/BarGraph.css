@@ -1,0 +1,30 @@
+.barGraphContent {
+    background-color: #fbfbfb;
+    width: 835px;
+    height: 320px;
+    position: relative;
+    padding: 20px 0 0 0;
+    border-radius: 5px;
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+}
+
+.barGraphTitle {
+    color: #282d30;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 25px;
+    top: 25px;
+}
+
+.barGraphToolTip {
+    background-color: #e60000;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Dashboard.css'
 import Welcome from '../../components/welcome/Welcome';
 import API from '../../data/API';
-
+import BarGraph from '../../components/barGraph/BarGraph';
+import './Dashboard.css';
 
 function Dashboard() {
     const [userSelect, setUserSelect] = useState(null);
@@ -31,6 +31,7 @@ function Dashboard() {
         return (
             <main className="dashboardContent">
                 <Welcome user={userSelect} /> 
+                <BarGraph selectedUser={userSelect} /> 
             </main>
         );
     }
