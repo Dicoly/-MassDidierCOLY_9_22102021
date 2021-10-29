@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Welcome from '../../components/welcome/Welcome';
 import API from '../../data/API';
 import BarGraph from '../../components/barGraph/BarGraph';
+import LineGraph from '../../components/lineGraph/LineGraph';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -31,7 +32,8 @@ function Dashboard() {
         return (
             <main className="dashboardContent">
                 <Welcome user={userSelect} /> 
-                <BarGraph selectedUser={userSelect} /> 
+                <BarGraph selectedUser={userSelect} />
+                <LineGraph selectedUser={userSelect} /> 
             </main>
         );
     }
