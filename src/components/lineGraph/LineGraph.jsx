@@ -57,7 +57,7 @@ function LineGraph(props) {
         return <div className="error">Erreur</div>;
     } else {
         return (
-            <section className="lineGraphShape">
+            <section className="lineGraphContent">
                 <h4 className="lineGraphTitle">Durée moyenne des sessions</h4>
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart width="100%" height={30} data={duration} margin={{ left: -65 }}>

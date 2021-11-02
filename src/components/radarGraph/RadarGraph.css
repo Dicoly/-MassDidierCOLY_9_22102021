@@ -1,0 +1,12 @@
+.radarGraphContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282d30;
+    width: 258px;
+    height: 263px;
+    border-radius: 5px;
+    @media (max-width: 1024px) {
+        width: 35%;
+    }
+}

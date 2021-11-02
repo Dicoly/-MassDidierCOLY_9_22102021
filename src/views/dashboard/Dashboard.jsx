@@ -3,6 +3,7 @@ import Welcome from '../../components/welcome/Welcome';
 import API from '../../data/API';
 import BarGraph from '../../components/barGraph/BarGraph';
 import LineGraph from '../../components/lineGraph/LineGraph';
+import RadarGraph from '../../components/radarGraph/RadarGraph';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -33,7 +34,10 @@ function Dashboard() {
             <main className="dashboardContent">
                 <Welcome user={userSelect} /> 
                 <BarGraph selectedUser={userSelect} />
-                <LineGraph selectedUser={userSelect} /> 
+                <div className="littleGraph">
+                    <LineGraph selectedUser={userSelect} />
+                    <RadarGraph selectedUser={userSelect} />
+                </div>
             </main>
         );
     }
