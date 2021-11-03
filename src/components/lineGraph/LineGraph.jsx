@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import API from '../../data/API';
-import Format from '../../data/Format';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 import './LineGraph.css'
 
 
-function LineGraph(props) {
-    const { selectedUser } = props;
-    const [duration, setDuration] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-
+function LineGraph({datas}) {
     const week = {
         1: 'L',
         2: 'M',
@@ -21,20 +14,6 @@ function LineGraph(props) {
         6: 'S',
         7: 'D'
     };
-
-    useEffect(() => {
-        API.getSessionDuration(selectedUser.id)
-            .then((response) => {
-                setDuration(Format.durationFormat(response));
-            })
-            .catch((error) => {
-                console.log(error);
-                setError(true);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [selectedUser]);
 
     const CustomXaxis = (tick) => {
         return week[tick];
@@ -51,49 +30,43 @@ function LineGraph(props) {
         return null;
     };
 
-    if (loading) {
-        return <div className="loading">Loading</div>;
-    } else if (error) {
-        return <div className="error">Erreur</div>;
-    } else {
-        return (
-            <section className="lineGraphContent">
-                <h4 className="lineGraphTitle">Durée moyenne des sessions</h4>
-                <ResponsiveContainer width="100%" height="100%">
-                    <LineChart width="100%" height={30} data={duration} margin={{ left: -65 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} />
-                        <XAxis
-                            tickFormatter={CustomXaxis}
-                            dataKey="day"
-                            type="category"
-                            axisLine={false}
-                            tickLine={false}
-                            stroke="white"
-                            padding={{ left: 15, right: 10 }}
-                        />
-                        <YAxis
-                            domain={['dataMin-25', 'dataMax+40']}
-                            axisLine={false}
-                            tick={false}
-                            label={{ value: 'index', position: 'insideLeft', dy: -150 }}
-                        />
-                        <Tooltip content={CustomTooltip} />
-                        <Line
-                            type="natural"
-                            dataKey="sessionLength"
-                            stroke="white"
-                            activeDot={{ r: 4 }}
-                            dot={false}
-                        />
-                    </LineChart>
-                </ResponsiveContainer>
-            </section>
-        );
-    }
+    return (
+        <section className="lineGraphContent">
+            <h4 className="lineGraphTitle">Durée moyenne des sessions</h4>
+            <ResponsiveContainer width="100%" height="100%">
+                <LineChart width="100%" height={30} data={datas} margin={{ left: -65 }}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} />
+                    <XAxis
+                        tickFormatter={CustomXaxis}
+                        dataKey="day"
+                        type="category"
+                        axisLine={false}
+                        tickLine={false}
+                        stroke="white"
+                        padding={{ left: 15, right: 10 }}
+                    />
+                    <YAxis
+                        domain={['dataMin-25', 'dataMax+40']}
+                        axisLine={false}
+                        tick={false}
+                        label={{ value: 'index', position: 'insideLeft', dy: -150 }}
+                    />
+                    <Tooltip content={CustomTooltip} />
+                    <Line
+                        type="natural"
+                        dataKey="sessionLength"
+                        stroke="white"
+                        activeDot={{ r: 4 }}
+                        dot={false}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+        </section>
+    );
 }
 
 LineGraph.propTypes = {
-    selectedUser: PropTypes.object.isRequired
+    datas: PropTypes.array.isRequired
 };
 
 export default LineGraph;

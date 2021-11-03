@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Welcome from '../../components/welcome/Welcome';
 import API from '../../data/API';
-import BarGraph from '../../components/barGraph/BarGraph';
-import LineGraph from '../../components/lineGraph/LineGraph';
-import RadarGraph from '../../components/radarGraph/RadarGraph';
+import BarGraphActivity from '../../components/barGraph/BarGraphActivity';
+import LineGraphAverage from '../../components/lineGraph/LineGraphAverage';
+import RadarGraphPerformance from '../../components/radarGraph/RadarGraphPerformance';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -33,10 +33,10 @@ function Dashboard() {
         return (
             <main className="dashboardContent">
                 <Welcome user={userSelect} /> 
-                <BarGraph selectedUser={userSelect} />
+                <BarGraphActivity selectedUser={userSelect} />
                 <div className="littleGraph">
-                    <LineGraph selectedUser={userSelect} />
-                    <RadarGraph selectedUser={userSelect} />
+                    <LineGraphAverage selectedUser={userSelect} />
+                    <RadarGraphPerformance selectedUser={userSelect} />
                 </div>
             </main>
         );
