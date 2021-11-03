@@ -4,7 +4,9 @@ import API from '../../data/API';
 import BarGraphActivity from '../../components/barGraph/BarGraphActivity';
 import LineGraphAverage from '../../components/lineGraph/LineGraphAverage';
 import RadarGraphPerformance from '../../components/radarGraph/RadarGraphPerformance';
+import ScoreGraph from '../../components/scoreGraph/ScoreGraph';
 import './Dashboard.css';
+
 
 function Dashboard() {
     const [userSelect, setUserSelect] = useState(null);
@@ -37,6 +39,7 @@ function Dashboard() {
                 <div className="littleGraph">
                     <LineGraphAverage selectedUser={userSelect} />
                     <RadarGraphPerformance selectedUser={userSelect} />
+                    <ScoreGraph score={userSelect.todayScore} />
                 </div>
             </main>
         );

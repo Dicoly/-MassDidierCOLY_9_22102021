@@ -1,0 +1,51 @@
+.scoreGraphContent {
+    background-color: #fbfbfb;
+    width: 258px;
+    height: 263px;
+    border-radius: 5px;
+    @media (max-width: 1024px) {
+        width: 30%;
+    }
+}
+
+.scoreGraphTitle {
+    color: #282d30;
+    text-align: start;
+    margin: 20px 0 0 20px;
+    font-family: Roboto, sans-serif;
+}
+
+.scoreGraphDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.scoreGraphText {
+    position: absolute;
+    top: 20%;
+    left: 26%;
+    text-align: center;
+    width: 123px;
+    height: 63px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 30px 0;
+}
+
+.scoreGraphPurcentage {
+    color: #282d30;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    text-align: center; 
+}
+
+.scoreGraphSubText {
+    color: #74798c;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 26px;
+    font-size: 14px;
+    text-align: center;
+}
