@@ -39,3 +39,28 @@
         justify-content: space-between;
     }
 }
+
+.dashboardCardInfos {
+    display: flex;
+    flex-direction: column;
+    height: 615px;
+    justify-content: space-between;
+    position: absolute;
+    top: 217px;
+    right: -15px;
+    margin-left: 32px;
+}
+
+@media screen and (max-width:1250px) {
+    .dashboardCardInfos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 124px;
+        top: 0;
+        left: 117px;
+        position: relative;
+        padding: 0 50px;
+        margin-left: 0px;
+        width: 80%;
+    }
+}
