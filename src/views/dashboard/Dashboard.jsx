@@ -44,16 +44,15 @@ function Dashboard() {
                         <ScoreGraph score={userSelect.todayScore} />
                     </div>
                 </div>
-                    <aside className="dashboardCardInfos">
-                        {Object.keys(userSelect.keyData).map((countCategory) => (
-                            <CardInfos
-                                countValue={userSelect.keyData[countCategory]}
-                                key={countCategory}
-                                countCategory={countCategory}
-                            />
-                        ))}
-                    </aside>
-                
+                <aside className="dashboardCardInfos">
+                    {Object.keys(userSelect.keyData).map((countCategory) => (
+                        <CardInfos
+                            countValue={userSelect.keyData[countCategory]}
+                            key={countCategory}
+                            countCategory={countCategory}
+                        />
+                    ))}
+                </aside> 
             </main>
         );
     }
