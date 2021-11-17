@@ -2,6 +2,10 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import './Header.css'
 
+/**
+ * @component
+ * @returns Header with NavLink
+ */
 function Header() {
     return (
         <header className="headerContent">

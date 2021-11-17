@@ -7,7 +7,10 @@ import lipid from '../../assets/lipid.svg';
 import glucide from '../../assets/glucide.svg';
 import './CardInfos.css'
 
-
+/**
+ * @component
+ * @returns Create a custom card depending of datas
+ */
 function CardInfos(props) {
     const { countCategory, countValue } = props;
 
@@ -47,7 +50,7 @@ function CardInfos(props) {
             return null
     }
 
-    /* Return a complete tag in each case */
+    /* Return a complete card in each case */
     return (
         <div className="cardInfosContent">
             <CardImg className="cardInfosImg" background={colorTag}>
@@ -62,7 +65,13 @@ function CardInfos(props) {
 }
 
 CardInfos.propTypes = {
+    /**
+     * Category of count
+     */
     countCategory: PropTypes.string.isRequired,
+    /**
+     * Value of the count's category
+     */
     countValue: PropTypes.number.isRequired
 };
 

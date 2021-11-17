@@ -4,7 +4,10 @@ import API from '../../data/API';
 import Format from '../../data/Format';
 import LineGraph from './LineGraph';
 
-
+/**
+ * Perform a user duration of activity request to API and display line graph with data response
+ * @component
+ */
 function LineGraphAverage(props) {
     const { selectedUser } = props;
     const [duration, setDuration] = useState(null);
@@ -37,6 +40,9 @@ function LineGraphAverage(props) {
 }
 
 LineGraphAverage.propTypes = {
+    /**
+    * User selected
+    */
     selectedUser: PropTypes.object.isRequired
 };
 

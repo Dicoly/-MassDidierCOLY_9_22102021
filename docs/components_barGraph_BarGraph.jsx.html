@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> components/barGraph/BarGraph.jsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,78 +79,123 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>components/barGraph/BarGraph.jsx</h1>
                 </header>
                 
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>Getting Started with Create React App</h1>
-<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
-<h2>Available Scripts</h2>
-<p>In the project directory, you can run:</p>
-<h3><code>yarn install</code></h3>
-<h3><code>yarn start</code></h3>
-<p>Runs the app in the development mode.<br>
-Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
-<p>The page will reload if you make edits.<br>
-You will also see any lint errors in the console.</p>
-<h2>Back-end project</h2>
-<p><a href="https://github.com/Dicoly/P9-front-end-dashboard">Backend repository</a></p>
-<p>This repo contains all the source code to run the micro API for the sports analytics dashboard.</p>
-<h2>2. Project (<strong>without Docker</strong>)</h2>
-<h3>2.1 Prerequisites</h3>
-<ul>
-<li><a href="https://nodejs.org/en/">NodeJS (<strong>version 12.18</strong>)</a></li>
-<li><a href="https://yarnpkg.com/">Yarn</a></li>
-</ul>
-<h3>2.2 Launching the project</h3>
-<ul>
-<li>Fork the backend repository</li>
-<li>Clone it on your computer.</li>
-<li>The <code>yarn</code> command will allow you to install the dependencies.</li>
-<li>The <code>yarn dev</code> command will allow you to run the micro API.</li>
-</ul>
-<h2>3. Endpoints</h2>
-<h3>3.1 Possible endpoints</h3>
-<p>This project includes four endpoints that you will be able to use:</p>
-<ul>
-<li><code>http://localhost:3000/user/${userId}</code> - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).</li>
-<li><code>http://localhost:3000/user/${userId}/activity</code> - retrieves a user's activity day by day with kilograms and calories.</li>
-<li><code>http://localhost:3000/user/${userId}/average-sessions</code> - retrieves the average sessions of a user per day. The week starts on Monday.</li>
-<li><code>http://localhost:3000/user/${userId}/performance</code> - retrieves a user's performance (energy, endurance, etc.).</li>
-</ul>
-<p><strong>Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.</strong></p>
-<h2>Libraries</h2>
-<ul>
-<li><a href="https://www.npmjs.com/package/axios">Axios</a> - Free API resquest library.</li>
-<li><a href="https://recharts.org/en-US/">Recharts</a> - Free chart library.</li>
-<li><a href="https://styled-components.com/">Style-components</a></li>
-</ul></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend} from 'recharts';
+import './BarGraph.css';
+
+/**
+ * @component
+ * @returns BarGraph component depending of activity datas
+ */
+
+function BarGraph({datas}) {
+
+    /**
+     * Format tooltip to display particular values
+     * @returns Formated div
+     */
+    const CustomTooltip = ({ active, payload }) => {
+        if (active &amp;&amp; payload &amp;&amp; payload.length) {
+            return (
+                &lt;div className="barGraphToolTip">
+                    &lt;p>{`${payload[0].value}kg`}&lt;/p>
+                    &lt;p>{`${payload[1].value / 1000}kCal`}&lt;/p>
+                &lt;/div>
+            );
+        }
+        return null;
+    };
+
+    /**
+     * Format legend style
+     * @returns Formated span
+     */
+    const CustomLegend = (value) => {
+        const style = { color: '#74798C', fontSize: '14px' };
+
+        return &lt;span style={style}>{value}&lt;/span>;
+    };
+
+    return (
+        &lt;section className="barGraphContent">
+            &lt;h4 className="barGraphTitle">Activité quotidienne&lt;/h4>
+            &lt;ResponsiveContainer width="100%" height="90%">
+                &lt;BarChart
+                    width={500}
+                    height={300}
+                    data={datas}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5
+                    }}>
+                    &lt;CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    &lt;XAxis dataKey={'index'} tickLine={false} />
+                    &lt;YAxis
+                        tickCount={3}
+                        dataKey="calories"
+                        axisLine={false}
+                        tickLine={false}
+                        orientation={'right'}
+                    />
+                    &lt;Legend
+                        align={'right'}
+                        verticalAlign={'top'}
+                        iconType={'circle'}
+                        payload={[
+                            { value: 'Poids (kg)', type: 'circle', color: '#282D30' },
+                            {
+                                value: 'Calories brûlées (kCal)',
+                                type: 'circle',
+                                color: '#E60000'
+                            }
+                        ]}
+                        wrapperStyle={{
+                            paddingBottom: '30px'
+                        }}
+                        formatter={CustomLegend}
+                    />
+                    &lt;Tooltip content={&lt;CustomTooltip />} />
+                    &lt;Bar
+                        dataKey="kilogram"
+                        fill="#282D30"
+                        radius={[10, 10, 0, 0]}
+                        barSize={10}
+                    />
+                    &lt;Bar
+                        dataKey="calories"
+                        fill="#E60000"
+                        radius={[10, 10, 0, 0]}
+                        barSize={10}
+                    />
+                &lt;/BarChart>
+            &lt;/ResponsiveContainer>
+        &lt;/section>
+    );
+}
+
+BarGraph.propTypes = {
+    /**
+     * data is an array
+     */
+    datas: PropTypes.array.isRequired
+};
+
+export default BarGraph;</code></pre>
+        </article>
     </section>
-
-
 
 
 

@@ -5,10 +5,15 @@ import bike from '../../assets/bike.svg';
 import bodybuilding from '../../assets/bodybuilding.svg';
 import './SideBar.css'
 
+/**
+ * @component
+ * @returns SideBar with NavLink
+ */
 function SideBar() {
 
     const arrayImg = [yoga, swim, bike, bodybuilding];
-
+    
+    /* Return a nav bar with logos for each element on arrayImg a new link is created  */
     return (
         <div className="sideBarContent">
             <nav className="sideBarNav">

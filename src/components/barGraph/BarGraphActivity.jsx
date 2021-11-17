@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import API from '../../data/API';
 import Format from '../../data/Format';
 import BarGraph from './BarGraph';
-//import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend} from 'recharts';
-//import './BarGraph.css';
 
+/**
+ * Perform a user activity request to API and display bar graph with data response
+ * @component
+ */
 function BarGraphActivity(props) {
     const { selectedUser } = props;
     const [activity, setActivity] = useState(null);
@@ -43,6 +45,9 @@ function BarGraphActivity(props) {
 }
 
 BarGraphActivity.propTypes = {
+    /**
+    * User selected
+    */
     selectedUser: PropTypes.object.isRequired
 };
 

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 import './LineGraph.css'
 
-
+/**
+ * @component
+ * @returns LineGraph component depending of activity duration datas
+ */
 function LineGraph({datas}) {
     const week = {
         1: 'L',
@@ -15,10 +18,18 @@ function LineGraph({datas}) {
         7: 'D'
     };
 
+    /**
+     * Format X axis label to display first day letter of week array instead of index
+     * @returns Formated Xaxis
+     */
     const CustomXaxis = (tick) => {
         return week[tick];
     };
 
+    /**
+     * Format tooltip to display duration value
+     * @returns Formated div
+     */
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
@@ -66,6 +77,9 @@ function LineGraph({datas}) {
 }
 
 LineGraph.propTypes = {
+    /**
+     * data is an array
+     */
     datas: PropTypes.array.isRequired
 };
 

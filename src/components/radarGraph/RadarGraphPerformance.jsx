@@ -4,7 +4,10 @@ import RadarGraph from './RadarGraph';
 import API from '../../data/API';
 import Format from '../../data/Format';
 
-
+/**
+ * Perform a user intensity of session request to API and display radar graph with data response
+ * @component
+ */
 function RadarGraphPerformance(props) {
     const { selectedUser } = props;
     const [intensity, setIntensity] = useState(null);
@@ -37,6 +40,9 @@ function RadarGraphPerformance(props) {
 }
 
 RadarGraphPerformance.propTypes = {
+    /**
+   * User selected
+   */
     selectedUser: PropTypes.object.isRequired
 };
 

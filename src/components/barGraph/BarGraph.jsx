@@ -3,8 +3,17 @@ import PropTypes from 'prop-types';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend} from 'recharts';
 import './BarGraph.css';
 
+/**
+ * @component
+ * @returns BarGraph component depending of activity datas
+ */
+
 function BarGraph({datas}) {
 
+    /**
+     * Format tooltip to display particular values
+     * @returns Formated div
+     */
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
@@ -17,6 +26,10 @@ function BarGraph({datas}) {
         return null;
     };
 
+    /**
+     * Format legend style
+     * @returns Formated span
+     */
     const CustomLegend = (value) => {
         const style = { color: '#74798C', fontSize: '14px' };
 
@@ -83,6 +96,9 @@ function BarGraph({datas}) {
 }
 
 BarGraph.propTypes = {
+    /**
+     * data is an array
+     */
     datas: PropTypes.array.isRequired
 };
 

@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import './RadarGraph.css';
 
+/**
+ * @component
+ * @returns RadarGraph component depending of intensity datas
+ */
 function RadarGraph({intensity}) {
 
+    /**
+     * Put first letter of each tick in uppercase, speed becomes Speed
+     * @returns user activity intensity sessions
+     */
     const CustomPolarAngleAxis = (tick) => {
         return intensity.kind[tick].charAt(0).toUpperCase() + intensity.kind[tick].slice(1);
     };
@@ -29,6 +37,9 @@ function RadarGraph({intensity}) {
 }
 
 RadarGraph.propTypes = {
+    /**
+     * intensity is data to fill the graph
+     */
     intensity: PropTypes.object.isRequired
 };
 

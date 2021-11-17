@@ -8,7 +8,10 @@ import ScoreGraph from '../../components/scoreGraph/ScoreGraph';
 import CardInfos from '../../components/cardInfos/CardInfos';
 import './Dashboard.css';
 
-
+/**
+ * @component
+ * @returns DashBoard with many components
+ */
 function Dashboard() {
     const [userSelect, setUserSelect] = useState(null);
     const [loading, setLoading] = useState(true);
