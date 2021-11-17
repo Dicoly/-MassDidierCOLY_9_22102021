@@ -1,0 +1,25 @@
+{
+    "source": {
+        "include": ["src"],
+        "includePattern": ".(jsx|js)$",
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": ["plugins/markdown","node_modules/better-docs/component"],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "better-docs": {
+            "logo": "../src/assets/Logo.svg"
+          }
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "docs",
+        "readme": "README.md",
+        "template": "node_modules/better-docs"
+    },
+    "tag": {
+        "allowUnknownTags": ["component"],
+        "dictionaries": ["jsdoc","closure"]
+    }
+} 
