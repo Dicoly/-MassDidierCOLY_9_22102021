@@ -34,9 +34,9 @@ function BarGraphActivity(props) {
 
     
     if (loading) {
-        return <div className="loading">Loading</div>;
+        return <div>Loading</div>;
     } else if (error) {
-        return <div className="error">Erreur</div>;
+        return <div>Erreur chargement du BarGraph</div>;
     } else {
         return (
             <BarGraph datas={activity} />

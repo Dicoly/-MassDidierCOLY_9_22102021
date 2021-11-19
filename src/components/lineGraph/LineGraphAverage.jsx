@@ -29,9 +29,9 @@ function LineGraphAverage(props) {
     }, [selectedUser]);
 
     if (loading) {
-        return <div className="loading">Loading</div>;
+        return <div>Loading</div>;
     } else if (error) {
-        return <div className="error">Erreur</div>;
+        return <div>Erreur chargement du LineGraph</div>;
     } else {
         return (
             <LineGraph datas={duration}/>

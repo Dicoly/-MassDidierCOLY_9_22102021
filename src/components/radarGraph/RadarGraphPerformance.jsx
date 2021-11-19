@@ -29,9 +29,9 @@ function RadarGraphPerformance(props) {
     }, [selectedUser]);
 
     if (loading) {
-        return <div className="loading">Loading</div>;
+        return <div>Loading</div>;
     } else if (error) {
-        return <div className="error">Erreur</div>;
+        return <div>Erreur chargement du RadarGraph</div>;
     } else {
         return (
             <RadarGraph intensity={intensity}/>
