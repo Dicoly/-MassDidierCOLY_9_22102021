@@ -11,6 +11,7 @@ function RadarGraph({intensity}) {
 
     /**
      * Put first letter of each tick in uppercase, speed becomes Speed
+     * @param {string} tick default radar chart polar axis value 
      * @returns user activity intensity sessions
      */
     const CustomPolarAngleAxis = (tick) => {

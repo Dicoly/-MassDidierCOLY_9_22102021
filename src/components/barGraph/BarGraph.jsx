@@ -12,6 +12,7 @@ function BarGraph({datas}) {
 
     /**
      * Format tooltip to display particular values
+     * @param {object}  tooltip  {active , payload} 
      * @returns Formated div
      */
     const CustomTooltip = ({ active, payload }) => {
@@ -28,6 +29,7 @@ function BarGraph({datas}) {
 
     /**
      * Format legend style
+     * @param {string} value actual legend text 
      * @returns Formated span
      */
     const CustomLegend = (value) => {

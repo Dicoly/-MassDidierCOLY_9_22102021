@@ -20,6 +20,7 @@ function LineGraph({datas}) {
 
     /**
      * Format X axis label to display first day letter of week array instead of index
+     * @param {string} tick default line chart Xaxis value 
      * @returns Formated Xaxis
      */
     const CustomXaxis = (tick) => {
@@ -28,6 +29,7 @@ function LineGraph({datas}) {
 
     /**
      * Format tooltip to display duration value
+     * @param {object}  tooltip  {active , payload} 
      * @returns Formated div
      */
     const CustomTooltip = ({ active, payload }) => {

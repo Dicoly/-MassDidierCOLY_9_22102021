@@ -120,9 +120,9 @@ function RadarGraphPerformance(props) {
     }, [selectedUser]);
 
     if (loading) {
-        return &lt;div className="loading">Loading&lt;/div>;
+        return &lt;div>Loading&lt;/div>;
     } else if (error) {
-        return &lt;div className="error">Erreur&lt;/div>;
+        return &lt;div>Erreur chargement du RadarGraph&lt;/div>;
     } else {
         return (
             &lt;RadarGraph intensity={intensity}/>
